@@ -13,7 +13,7 @@ function App() {
       </div>
 
       <div className="container_tasks" >
-        <h1>Create and manage your tasks!</h1>
+        <h1 className="title" >Create and manage your tasks!</h1>
 
         <div className="container-add" >
           <input type="text" className="input-add" /> <button className="button-add" >Add Task&nbsp;&nbsp;&nbsp;<PlusCircledIcon className="icons" /></button>
