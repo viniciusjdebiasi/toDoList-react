@@ -1,35 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { HeartFilledIcon, HeartIcon, CheckCircledIcon, ListBulletIcon, TrashIcon, PlusCircledIcon } from "@radix-ui/react-icons";
+
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="main">
+      <div className="container-choose" >
+        <button className="button-choose" > <HeartFilledIcon className="icons" />&nbsp;&nbsp;&nbsp;<p>Favorites</p> </button>
+        <button className="button-choose" > <CheckCircledIcon className="icons" />&nbsp;&nbsp;&nbsp;<p>Completed</p> </button>
+        <button className="button-choose" > <ListBulletIcon className="icons" />&nbsp;&nbsp;&nbsp;<p>All</p> </button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+
+      <div className="container_tasks" >
+        <h1>Create and manage your tasks!</h1>
+
+        <div className="container-add" >
+          <input type="text" className="input-add" /> <button className="button-add" >Add Task&nbsp;&nbsp;&nbsp;<PlusCircledIcon className="icons" /></button>
+        </div>
+
+        <div className="tasks">
+          <p className="task"> <input type="checkbox" className="input-checkbox" /> Varrer a sala Varrer a sala Varrer a sala <button className="button-task"><HeartIcon className="icons" /></button> <button className="button-task"><TrashIcon className="icons" /></button> </p>
+          
+          <p className="task"> <input type="checkbox" className="input-checkbox" /> Varrer a sala <button className="button-task"> <HeartIcon className="icons" /> </button> <button className="button-task"> <TrashIcon className="icons" /> </button> </p>
+          
+          <p className="task"> <input type="checkbox" className="input-checkbox" /> Varrer a sala <button className="button-task"> <HeartIcon className="icons" /> </button> <button className="button-task"> <TrashIcon className="icons" /> </button> </p>
+          
+          <p className="task"> <input type="checkbox" className="input-checkbox" /> Varrer a sala <button className="button-task"> <HeartIcon className="icons" /> </button> <button className="button-task"> <TrashIcon className="icons" /> </button> </p>
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
-export default App
+export default App;
