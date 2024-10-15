@@ -13,13 +13,12 @@ import {
 import "./App.css";
 
 function App() {
-  const [task, setTask] = useState(""); // Armazena o valor da nova tarefa
-  const [savedTasks, setSavedTasks] = useState([]); // Armazena todas as tarefas
+  const [task, setTask] = useState(""); 
+  const [savedTasks, setSavedTasks] = useState([]); 
   const [showFavorites, setShowFavorites] = useState(false);
   const [showCompleteds, setShowCompleteds] = useState(false);
   const [message, setMessage] = useState("");
 
-  // Função para incluir uma nova tarefa
   const IncludeTask = (event) => {
     event.preventDefault();
 
@@ -37,71 +36,65 @@ function App() {
       const NewTask = {
         id: Date.now(),
         name: task,
-        favorite: false, // Adiciona um campo para "favoritar"
-        completed: false, // Adiciona um campo para "concluída"
+        favorite: false, 
+        completed: false, 
       };
 
       const UpdatedTasks = [...ExistingTasks, NewTask];
-      localStorage.setItem("tasks", JSON.stringify(UpdatedTasks)); // Atualiza o LocalStorage
+      localStorage.setItem("tasks", JSON.stringify(UpdatedTasks)); 
 
-      setTask(""); // Limpa o input
-      setSavedTasks(UpdatedTasks); // Atualiza o estado com a nova lista de tarefas
+      setTask(""); 
+      setSavedTasks(UpdatedTasks); 
     }
   };
 
-  // Função para exibir as tarefas ao carregar a página
   const ShowTasks = () => {
     setShowFavorites(false)
     setShowCompleteds(false)
     const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    setSavedTasks(savedTasks); // Atualiza o estado com as tarefas salvas
+    setSavedTasks(savedTasks); 
   };
 
-  // Função para mostrar tarefas completas
   const ShowCompletedTasks = () => {
-    setShowCompleteds(true); // Define para mostrar apenas as tarefas favoritas
+    setShowCompleteds(true); 
     setShowFavorites(false)
     const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    setSavedTasks(savedTasks); // Atualiza o estado com as tarefas salvas
+    setSavedTasks(savedTasks); 
   };
 
-  // Função para mostrar tarefas favoritas
   const ShowFavoriteTasks = () => {
-    setShowFavorites(true); // Define para mostrar apenas as tarefas favoritas
+    setShowFavorites(true); 
     setShowCompleteds(false)
     const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    setSavedTasks(savedTasks); // Atualiza o estado com as tarefas salvas
+    setSavedTasks(savedTasks); 
   };
 
-  // Função para remover uma tarefa
   const RemoveTask = (taskId) => {
     const RemainingTasks = savedTasks.filter((task) => task.id !== taskId);
     localStorage.setItem("tasks", JSON.stringify(RemainingTasks));
-    setSavedTasks(RemainingTasks); // Atualiza o estado
+    setSavedTasks(RemainingTasks);
   };
 
-  // Função para marcar/desmarcar uma tarefa como favorita
   const ToggleFavorite = (taskId) => {
     const UpdatedTasks = savedTasks.map((task) => {
       if (task.id === taskId) {
-        return { ...task, favorite: !task.favorite }; // Alterna o status de favorito
+        return { ...task, favorite: !task.favorite }; 
       }
       return task;
     });
     localStorage.setItem("tasks", JSON.stringify(UpdatedTasks));
-    setSavedTasks(UpdatedTasks); // Atualiza o estado
+    setSavedTasks(UpdatedTasks); 
   };
 
-  // Função para marcar/desmarcar uma tarefa como completa
   const ToggleCompleted = (taskId) => {
     const UpdatedTasks = savedTasks.map((task) => {
       if (task.id === taskId) {
-        return { ...task, completed: !task.completed }; // Alterna o status de favorito
+        return { ...task, completed: !task.completed }; 
       }
       return task;
     });
     localStorage.setItem("tasks", JSON.stringify(UpdatedTasks));
-    setSavedTasks(UpdatedTasks); // Atualiza o estado
+    setSavedTasks(UpdatedTasks); 
   };
 
   return (
@@ -140,6 +133,8 @@ function App() {
             placeholder="Include your task"
             value={task}
             onChange={(event) => setTask(event.target.value)}
+            autoFocus={true}
+            maxLength={50}
           />
 
           <button
@@ -157,8 +152,8 @@ function App() {
 
         <div className="tasks">
           {savedTasks
-          .filter((task) => (!showFavorites && !showCompleteds) || // Exibe todas as tarefas
-          (showFavorites && task.favorite) || // Exibe apenas favoritas
+          .filter((task) => (!showFavorites && !showCompleteds) || 
+          (showFavorites && task.favorite) || 
           (showCompleteds && task.completed))
           .map((task) => (
             <p className="task" key={task.id}>

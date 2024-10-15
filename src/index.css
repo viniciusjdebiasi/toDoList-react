@@ -1,6 +1,9 @@
 .main {
-    padding: 1rem;
-    margin: -1rem;
+    margin: 0;
+    padding: 0.5rem;
     background-color: #B0B0B0;
-    height: 100vh;
+}
+
+.container{
+    width: 100%;
 }
