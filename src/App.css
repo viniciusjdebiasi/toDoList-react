@@ -1,13 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/* principal */
 .main {
     font-family: 'poppins';
     display: flex;
 }
 
-/* escolher favoritas, concluidas e todas */
-.container-choose{
+.container-choose {
     width: 12rem;
     height: 12rem;
     display: flex;
@@ -15,7 +13,7 @@
     justify-content: space-evenly;
 }
 
-.button-choose{
+.button-choose {
     width: 10rem;
     height: 3rem;
     display: flex;
@@ -27,19 +25,22 @@
     transition: 0.5s;
 }
 
-.button-choose:hover{
+.button-choose:hover {
     background-color: #A3C4F3;
     color: #FFFFFF;
     cursor: pointer;
 }
 
-.icons{
+.button-choose:active {
+    background-color: #333333;
+}
+
+.icons {
     width: 1.8rem;
     height: auto;
 }
 
-/* container das tasks */
-.container_tasks{
+.container_tasks {
     width: 85%;
     height: auto;
     display: flex;
@@ -47,19 +48,25 @@
     margin-left: 2rem;
 }
 
-.title{
+.message {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.title {
     color: #333333;
     font-style: italic;
 }
 
-.container-add{
+.container-add {
     width: 100%;
     height: auto;
     display: flex;
     flex-basis: 1;
 }
 
-.button-add{
+.button-add {
     width: 10rem;
     height: 2.8rem;
     border-radius: 0 1rem 1rem 0;
@@ -71,13 +78,17 @@
     transition: 0.5s;
 }
 
-.button-add:hover{
+.button-add:hover {
     background-color: #A3C4F3;
     color: #FFFFFF;
     cursor: pointer;
 }
 
-.input-add{
+.button-add:active {
+    background-color: #333333;
+}
+
+.input-add {
     height: 2.59rem;
     width: 42%;
     padding-left: 1rem;
@@ -88,37 +99,42 @@
     cursor: pointer;
 }
 
-.tasks{
+.tasks {
     width: 41rem;
     text-align: left;
     margin-top: 1rem;
 }
 
-.input-checkbox{
+.input-checkbox {
     margin-right: 0.5rem;
 }
 
-.task{
+.task {
     display: flex;
     align-items: center;
 }
 
-.button-task{
+.button-task {
     border: none;
     background: none;
     transition: 0.5s;
 }
 
-.button-task:hover{
+.button-task:hover {
     color: #FFFFFF;
     transform: scale(1.1);
     cursor: pointer;
     transform: rotate(360deg);
 }
 
+.button-task:active {
+    color: #333333;
+}
+
 input[type="checkbox"] {
     width: 1.6rem;
     height: 1.6rem;
-    accent-color: #A3C4F3; /* Cor de destaque para navegadores que suportam */
-    cursor: pointer;    
+    accent-color: #A3C4F3;
+    /* Cor de destaque para navegadores que suportam */
+    cursor: pointer;
 }
